@@ -1,12 +1,17 @@
 #Pull base image
 FROM ubuntu:14.04
 
-RUN apt-get update -y
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN add-apt-repository -y ppa:webupd8team/java
-RUN apt-get -qq update
-RUN echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get -qqy install oracle-java6-installer
-RUN update-alternatives --display java
+#RUN apt-get -qq update
+#RUN apt-get -qqy upgrade
+#RUN apt-get -qqy install python-software-properties
 
+#RUN apt-get install -y openjdk-7-jdk 
+RUN rm -rf /var/lib/apt/lists/*
+
+# Define working directory.
+WORKDIR /data
+
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 RUN apt-get clean
