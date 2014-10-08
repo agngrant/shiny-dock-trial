@@ -1,4 +1,7 @@
 #!/bin/bash
+echo $PATH
+echo $(which git)
+echo $(which docker)
 git checkout master
 service=$JOB_NAME
 service_port=$JOB_PORT
