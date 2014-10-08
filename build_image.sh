@@ -1,4 +1,5 @@
 #!/bin/bash
+git checkout master
 service=$JOB_NAME
 service_port=$JOB_PORT
 BRANCH=$(git branch | grep '^*' |awk '{print $2}') 
